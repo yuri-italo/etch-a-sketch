@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: calc(2rem * 16);
+  display: flex;
+  flex-wrap: wrap;
+}
+.square {
+  border: 1px solid black;
+  height: 2rem;
+  width: 2rem;
+}
