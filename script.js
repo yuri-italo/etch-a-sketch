@@ -1,10 +1,13 @@
 const container = document.querySelector(".container");
-
 createGrid(16);
-
 const squares = document.querySelectorAll(".square");
+
 Array.from(squares).forEach((square) => {
-  square.addEventListener("mouseenter", handleMouseEnter);
+  square.addEventListener("mousemove", handleMouseEnter);
+});
+
+Array.from(squares).forEach((square) => {
+  square.addEventListener("click", handleClick);
 });
 
 function createGrid(sideSize) {
@@ -18,5 +21,11 @@ function createGrid(sideSize) {
 
 function handleMouseEnter(event) {
   const target = event.target;
-  target.style.backgroundColor = "black";
+  if (event.buttons === 1) {
+    target.style.backgroundColor = "black";
+  }
+}
+
+function handleClick(event) {
+  event.target.style.backgroundColor = "black";
 }

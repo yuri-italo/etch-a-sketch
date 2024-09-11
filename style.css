@@ -2,6 +2,11 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+  cursor: default;
 }
 
 * {
@@ -9,12 +14,14 @@
   padding: 0;
 }
 .container {
-  width: calc(2rem * 16);
+  width: 500px;
+  height: 500px;
   display: flex;
   flex-wrap: wrap;
 }
+
 .square {
   border: 1px solid black;
-  height: 2rem;
-  width: 2rem;
+  height: calc(500px / 16);
+  width: calc(500px / 16);
 }
