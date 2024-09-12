@@ -1,22 +1,26 @@
-const container = document.querySelector(".container");
 createGrid(16);
-const squares = document.querySelectorAll(".square");
 
-Array.from(squares).forEach((square) => {
-  square.addEventListener("mousemove", handleMouseEnter);
-});
-
-Array.from(squares).forEach((square) => {
-  square.addEventListener("click", handleClick);
+const resizeButton = document.querySelector(".nav-bar button");
+resizeButton.addEventListener("click", () => {
+  const input = window.prompt("Number of squares per side [1 - 100]");
 });
 
 function createGrid(sideSize) {
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
+
   const divQuantity = sideSize * sideSize;
   for (let i = 0; i < divQuantity; i++) {
     const div = document.createElement("div");
     div.className = "square";
     container.appendChild(div);
   }
+
+  const squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.addEventListener("mousemove", handleMouseEnter);
+    square.addEventListener("click", handleClick);
+  });
 }
 
 function handleMouseEnter(event) {
