@@ -22,29 +22,33 @@ resetButton.addEventListener("click", () => {
   });
 });
 
-function createGrid(sideSize) {
-  const GRID_HEIGHT = 500;
-  const GRID_WIDTH = 500;
+const gridButton = document.querySelector(".grid-button");
+gridButton.addEventListener("click", () => {
+  document.querySelector(".container").childNodes.forEach((square) => {
+    square.classList.toggle("non-border");
+  });
+});
 
+function createGrid(sideSize) {
   const container = document.querySelector(".container");
+  const squareSize = (1 / sideSize) * 100 + "%";
   container.innerHTML = "";
 
-  const divQuantity = sideSize * sideSize;
-  for (let i = 0; i < divQuantity; i++) {
+  for (let i = 0; i < sideSize * sideSize; i++) {
     const div = document.createElement("div");
     div.className = "square";
-    div.style.width = GRID_WIDTH / sideSize + "px";
-    div.style.height = GRID_HEIGHT / sideSize + "px";
+    div.style.width = squareSize;
+    div.style.height = squareSize;
     container.appendChild(div);
   }
 
   document.querySelectorAll(".square").forEach((square) => {
-    square.addEventListener("mousemove", handleMouseEnter);
+    square.addEventListener("mousemove", handleMouseMove);
     square.addEventListener("click", handleClick);
   });
 }
 
-function handleMouseEnter(event) {
+function handleMouseMove(event) {
   const target = event.target;
   if (event.buttons === 1) {
     target.style.backgroundColor = "black";

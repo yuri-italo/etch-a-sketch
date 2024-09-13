@@ -38,6 +38,7 @@ button:hover {
 }
 
 .container {
+  border: 1px solid grey;
   display: flex;
   flex-wrap: wrap;
   height: 500px;
@@ -46,4 +47,8 @@ button:hover {
 
 .square {
   border: 1px solid grey;
+}
+
+.non-border {
+  border: none;
 }
