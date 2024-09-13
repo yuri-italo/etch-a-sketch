@@ -2,22 +2,46 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  cursor: default;
+  font-family: monospace;
   -webkit-user-select: none;
-  user-select: none;
   -webkit-user-drag: none;
   -webkit-app-region: no-drag;
-  cursor: default;
+  user-select: none;
 }
 
 * {
   margin: 0;
   padding: 0;
 }
+
+body {
+  align-items: center;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+button {
+  background-color: inherit;
+  border-radius: 10px;
+  font-size: large;
+  height: 30px;
+  width: 100px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
 .container {
-  width: 500px;
-  height: 500px;
   display: flex;
   flex-wrap: wrap;
+  height: 500px;
+  width: 500px;
 }
 
 .square {
