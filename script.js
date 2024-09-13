@@ -2,7 +2,7 @@ const DEFAULT_SIZE = 16;
 
 createGrid(DEFAULT_SIZE);
 
-const resizeButton = document.querySelector(".nav-bar button");
+const resizeButton = document.querySelector(".resize-button");
 resizeButton.addEventListener("click", () => {
   let input = null;
   do {
@@ -13,6 +13,13 @@ resizeButton.addEventListener("click", () => {
   } while (input < 1 || input > 100 || isNaN(input));
 
   createGrid(input);
+});
+
+const resetButton = document.querySelector(".reset-button");
+resetButton.addEventListener("click", () => {
+  document.querySelector(".container").childNodes.forEach((square) => {
+    square.style.backgroundColor = "inherit";
+  });
 });
 
 function createGrid(sideSize) {
