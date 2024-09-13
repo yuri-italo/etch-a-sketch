@@ -1,10 +1,15 @@
-createGrid(16);
+const DEFAULT_SIZE = 16;
+
+createGrid(DEFAULT_SIZE);
 
 const resizeButton = document.querySelector(".nav-bar button");
 resizeButton.addEventListener("click", () => {
   let input = null;
   do {
     input = window.prompt("Number of squares per side [1 - 100]");
+    if (input === null) {
+      input = DEFAULT_SIZE;
+    }
   } while (input < 1 || input > 100 || isNaN(input));
 
   createGrid(input);
