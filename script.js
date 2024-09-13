@@ -2,10 +2,18 @@ createGrid(16);
 
 const resizeButton = document.querySelector(".nav-bar button");
 resizeButton.addEventListener("click", () => {
-  const input = window.prompt("Number of squares per side [1 - 100]");
+  let input = null;
+  do {
+    input = window.prompt("Number of squares per side [1 - 100]");
+  } while (input < 1 || input > 100 || isNaN(input));
+
+  createGrid(input);
 });
 
 function createGrid(sideSize) {
+  const GRID_HEIGHT = 500;
+  const GRID_WIDTH = 500;
+
   const container = document.querySelector(".container");
   container.innerHTML = "";
 
@@ -13,11 +21,12 @@ function createGrid(sideSize) {
   for (let i = 0; i < divQuantity; i++) {
     const div = document.createElement("div");
     div.className = "square";
+    div.style.width = GRID_WIDTH / sideSize + "px";
+    div.style.height = GRID_HEIGHT / sideSize + "px";
     container.appendChild(div);
   }
 
-  const squares = document.querySelectorAll(".square");
-  squares.forEach((square) => {
+  document.querySelectorAll(".square").forEach((square) => {
     square.addEventListener("mousemove", handleMouseEnter);
     square.addEventListener("click", handleClick);
   });

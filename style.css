@@ -22,6 +22,4 @@
 
 .square {
   border: 1px solid black;
-  height: calc(500px / 16);
-  width: calc(500px / 16);
 }
