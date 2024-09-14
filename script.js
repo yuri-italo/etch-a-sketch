@@ -48,12 +48,12 @@ function createGrid(sideSize) {
   }
 
   document.querySelectorAll(".square").forEach((square) => {
-    square.addEventListener("mousemove", handleMouseMove);
+    square.addEventListener("mouseenter", handleMouseEnter);
     square.addEventListener("click", handleClick);
   });
 }
 
-function handleMouseMove(event) {
+function handleMouseEnter(event) {
   const target = event.target;
   const container = document.querySelector(".container");
 
