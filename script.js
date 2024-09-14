@@ -29,6 +29,11 @@ gridButton.addEventListener("click", () => {
   });
 });
 
+const rgbButton = document.querySelector(".rgb-button");
+rgbButton.addEventListener("click", () => {
+  document.querySelector(".container").classList.toggle("rgb");
+});
+
 function createGrid(sideSize) {
   const container = document.querySelector(".container");
   const squareSize = (1 / sideSize) * 100 + "%";
@@ -50,11 +55,31 @@ function createGrid(sideSize) {
 
 function handleMouseMove(event) {
   const target = event.target;
+  const container = document.querySelector(".container");
+
   if (event.buttons === 1) {
-    target.style.backgroundColor = "black";
+    if (container.classList.contains("rgb")) {
+      generateRandomColor(target);
+    } else {
+      target.style.backgroundColor = "black";
+    }
   }
 }
 
 function handleClick(event) {
-  event.target.style.backgroundColor = "black";
+  const target = event.target;
+  const container = document.querySelector(".container");
+
+  if (container.classList.contains("rgb")) {
+    generateRandomColor(target);
+  } else {
+    target.style.backgroundColor = "black";
+  }
+}
+
+function generateRandomColor(target) {
+  const R = Math.floor(Math.random() * 256);
+  const G = Math.floor(Math.random() * 256);
+  const B = Math.floor(Math.random() * 256);
+  target.style.backgroundColor = `rgb(${R},${G},${B})`;
 }
