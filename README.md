@@ -7,7 +7,6 @@ This project is part of [The Odin Project's](https://www.theodinproject.com/) Fo
 - [Overview](#overview)
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [Extra Credit](#extra-credit)
 - [Technologies Used](#technologies-used)
 - [Acknowledgements](#acknowledgements)
 
